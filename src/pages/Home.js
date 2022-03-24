@@ -5,6 +5,7 @@ import Navbar from '../sections/Navbar'
 import Slider from '../sections/Slider';
 import Products from '../sections/Products';
 import NewsLetter from '../sections/NewsLetter';
+import Footer from '../sections/Footer';
 
 const Home = () => {
   return (
@@ -15,6 +16,7 @@ const Home = () => {
       <Category />
       <Products />
       <NewsLetter />
+      <Footer />
     </div>
   )
 }
