@@ -3,6 +3,7 @@ import Announcement from '../sections/Announcement'
 import Category from '../sections/Categories';
 import Navbar from '../sections/Navbar'
 import Slider from '../sections/Slider';
+import Products from '../sections/Products';
 
 const Home = () => {
   return (
@@ -10,7 +11,8 @@ const Home = () => {
       <Announcement />
       <Navbar />
       <Slider />
-      <Category/>
+      <Category />
+      <Products/>
     </div>
   )
 }

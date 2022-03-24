@@ -8,11 +8,10 @@ display: flex;
 
 `
 const Categories = () => {
-    return (< Container > {
-        categories.map(items => (<
-            CategoryITem item={
-                items
-            }/>
+    return (< Container >
+        {
+        categories.map(items => (
+            <CategoryITem item={items} key={items.id}/>
         ))}
         </Container>
         )

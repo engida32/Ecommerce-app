@@ -2,7 +2,7 @@ export const sliderItems = [
     {
       id: 1,
       title: "SUMMER SALE",
-      img: "https://i.ibb.co/cXFnLLV/3.png",
+      img: "https://o.remove.bg/downloads/6e8be103-a6e3-4aae-b9df-f3c4a41ba492/photo-1563178406-4cdc2923acbc-removebg-preview.png",
 
       desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
       bg: "f5fafd",
@@ -48,7 +48,7 @@ export const sliderItems = [
     },
     {
       id:2,
-      img:"https://cdn.shopify.com/s/files/1/0101/4832/products/Angela_Natural_Tee.png?v=1606780388",
+      img:'https://cdn.shopify.com/s/files/1/0101/4832/products/BlackandTrans_FrontTshirt_large.png?v=1633442234',
     },
     {
       id:3,
@@ -68,7 +68,7 @@ export const sliderItems = [
     },
     {
       id:7,
-      img:"https://www.vintageindustries.nl/download_front/qympzk1762/2217_Arrow_Jacket_Forest.png",
+      img:"https://o.remove.bg/downloads/58bbaeb3-53ee-42c7-a60f-0e676e760808/537-5376428_jacket-png-images-with-transparent-background-for-jacket-removebg-preview.png",
     },
     {
       id:8,

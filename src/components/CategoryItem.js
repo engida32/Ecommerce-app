@@ -35,7 +35,7 @@ font-weight: 900;
 const CategoryITem = ({item}) => {
   return (
     <Container>
-      <Image src={item.img} />
+      <Image src={item.img} key={item.id} />
       <Info>
         <Title>{item.title}</Title>
         <Button>SHOP MOE</Button>
