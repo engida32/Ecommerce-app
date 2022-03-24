@@ -13,8 +13,7 @@ font-size:15px
 const Announcement = () => {
     return (
         <Container>
-            This Announcement from some in the system
-
+            This Announcement from someone in the system
         </Container>
     )
 }
