@@ -64,7 +64,7 @@ transform: scale(1.5);
 `
 
 
-const Product = ({item}) => {
+const Product = ({ item }) => {
     return (
         <Container>
             <Circle />
