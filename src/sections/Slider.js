@@ -3,12 +3,16 @@ import styled from 'styled-components';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import { sliderItems } from '../data/data.js'
+import { mobile } from '../util/responsive';
 const Container = styled.div`
     width: 100%;
     height: 100vh;
     display: flex;
     position: relative;
     overflow: hidden;
+    ${mobile({
+    display: 'none'
+})}
 
 
 `
@@ -74,9 +78,9 @@ const Slider = () => {
     const [slideIndex, setSlideIndex] = useState(0);
     const handleClick = (direction) => {
         if (direction === 'left') {
-            setSlideIndex(slideIndex > 0 ?slideIndex-1:2)
+            setSlideIndex(slideIndex > 0 ? slideIndex - 1 : 2)
         }
-        else(setSlideIndex(slideIndex<2?slideIndex+1:0))
+        else (setSlideIndex(slideIndex < 2 ? slideIndex + 1 : 0))
 
     }
     return (
@@ -89,7 +93,7 @@ const Slider = () => {
             </Arrow>
             <Wrapper slideIndex={slideIndex}>
 
-                {sliderItems.map(item => (<Slide bg={item.bg}key={item.id}>
+                {sliderItems.map(item => (<Slide bg={item.bg} key={item.id}>
                     <ImageContainer >
                         <Image src={item.img}
                         />
