@@ -173,7 +173,7 @@ const Cart = () => {
                         <Product>
                             <ProductDetail>
                                 <Image
-                                    src="https://o.remove.bg/downloads/17fecde4-de52-4e02-ab35-376dea727dcf/selected-femme-alice-wide-jeans-removebg-preview.png"
+                                    src="https://o.remove.bg/downloads/7420524e-2361-4def-bc0b-0cb88120bcfa/yellow-women-shoes-png-image-5a3637deaad268.8499016115135026866997-removebg-preview.png"
                                 />
                                 <Details>
                                     <ProductName><b>Product</b> JESSIE THUNDER SHOES  </ProductName>
