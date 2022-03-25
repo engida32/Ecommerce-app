@@ -1,12 +1,17 @@
 import styled from "styled-components"
 import Product from '../components/Product'
-import { popularProducts } from '../data/data';
+import { popularProducts } from '../util/data';
+import { mobile } from "../util/responsive";
 const Container = styled.div`
   /* padding: 20px; */
     display: flex;
     flex-wrap: wrap;
-
     justify-content: space-between;
+  ${mobile({
+  // display: 'none',
+  ObjectFit: 'cover',
+  justifyContent: 'center', padding: '0px'
+})}
 `
 const Products = () => {
   return (

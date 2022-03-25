@@ -2,7 +2,7 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import { sliderItems } from '../data/data.js'
+import { sliderItems } from '../util/data.js'
 import { mobile } from '../util/responsive';
 const Container = styled.div`
     width: 100%;

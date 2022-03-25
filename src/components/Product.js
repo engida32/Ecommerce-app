@@ -1,5 +1,6 @@
 import { FavoriteBorderOutlined, SearchOutlined, ShoppingCartOutlined } from '@mui/icons-material';
 import styled from 'styled-components';
+import { CustomLink } from '../util/CustomLink';
 
 const Info = styled.div`
 opacity: 0;
@@ -8,6 +9,7 @@ height: 100%;
 position: absolute;
 top:0;
 left: 0;
+right: 0;
 background-color: rgb(0,0,0,0.2);
 align-items: center;
 justify-content: center;
@@ -17,11 +19,10 @@ transition: all 0.6s ease-in-out;
 `
 const Container = styled.div`
   flex: 1;
-  margin: 5px;
+  margin: 10px;
   min-width: 280px;
   height: 350px;
 
-  margin-left:100px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -78,7 +79,9 @@ const Product = ({ item }) => {
                     <SearchOutlined />
                 </Icon>
                 <Icon>
-                    <FavoriteBorderOutlined />
+                    <CustomLink to='/product'>
+                        <FavoriteBorderOutlined />
+                    </CustomLink>
                 </Icon>
             </Info>
         </Container>

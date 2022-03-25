@@ -1,6 +1,6 @@
 import {
     categories
-} from '../data/data';
+} from '../util/data';
 import styled from 'styled-components';
 import CategoryITem from '../components/CategoryItem';
 import { mobile } from '../util/responsive';

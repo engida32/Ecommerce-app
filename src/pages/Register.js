@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import { mobile } from '../util/responsive';
+import Announcement from '../sections/Announcement';
+import Navbar from '../sections/Navbar';
 const Container = styled.div`
 width: 100vw;
 height: 100vh;
@@ -51,24 +53,27 @@ const Button = styled.button`
   cursor: pointer;`
 const Register = () => {
     return (
-        <Container>
-
-            <Wrapper>
-                <Title>CREATE AN ACCOUNT</Title>
-                <Form>
-                    <Input placeholder='name' />
-                    <Input placeholder='last name' />
-                    <Input placeholder='user name' />
-                    <Input placeholder='email' />
-                    <Input placeholder='password' />
-                    <Input placeholder='consfirm password' />
-                    <Agreement>    By creating an account, I consent to the processing of my personal
-                        data in accordance with the <b>PRIVACY POLICY</b>
-                    </Agreement>
-                    <Button>CREATE</Button>
-                </Form>
-            </Wrapper>
-        </Container>
+        <>
+            <Announcement />
+            <Navbar />
+            <Container>
+                <Wrapper>
+                    <Title>CREATE AN ACCOUNT</Title>
+                    <Form>
+                        <Input placeholder='name' />
+                        <Input placeholder='last name' />
+                        <Input placeholder='user name' />
+                        <Input placeholder='email' />
+                        <Input placeholder='password' />
+                        <Input placeholder='consfirm password' />
+                        <Agreement>    By creating an account, I consent to the processing of my personal
+                            data in accordance with the <b>PRIVACY POLICY</b>
+                        </Agreement>
+                        <Button>CREATE</Button>
+                    </Form>
+                </Wrapper>
+            </Container>
+        </>
     )
 }
 

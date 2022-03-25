@@ -6,6 +6,7 @@ import Footer from '../sections/Footer';
 import Announcement from '../sections/Announcement';
 import { Add, Remove } from '@mui/icons-material';
 import { mobile } from '../util/responsive';
+import { CustomLink } from '../util/CustomLink';
 
 const Container = styled.div``
 const Wrapper = styled.div`
@@ -163,7 +164,10 @@ const ProductInfo = () => {
                             <Remove />
                             <Amount> 1</Amount>
                             <Add />
-                            <Button>ADD TO CART</Button>
+                            <CustomLink to='/cart'>
+
+                                <Button>ADD TO CART</Button>
+                            </CustomLink>
                         </AmountContainer>
                     </AddContainer>
                 </InfoContainer>

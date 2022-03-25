@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import { mobile } from '../util/responsive'
+import Announcement from '../sections/Announcement';
+import Navbar from '../sections/Navbar';
 
 const Container = styled.div`
 width: 100vw;
@@ -58,8 +60,12 @@ cursor: pointer;
   `
 
 const Login = () => {
-    return (
+    return (<>
+        <Announcement />
+        <Navbar />
+
         <Container>
+
             <Wrapper>
                 <Title>LOGIN TO ACCOUNT</Title>
                 <Form>
@@ -72,6 +78,7 @@ const Login = () => {
             </Wrapper>
 
         </Container>
+    </>
     )
 }
 
