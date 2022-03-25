@@ -5,10 +5,10 @@ const Container = styled.div`
 width: 100vw;
 height: 100vh;
 background:linear-gradient(
-    rgba(255,255,255,0.5),
+    rgba(255,255,205,0.5),
     rgba(255,255,255,0.5)
 ),
-url("https://images.pexels.com/photos/6984661/pexels-photo-6984661.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940")
+url("https://images.pexels.com/photos/6984650/pexels-photo-6984650.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940")
 center;
 display: flex;
 align-items: center;
@@ -25,7 +25,6 @@ font-weight: 500;
 `
 const Form = styled.form`
 flex-direction: column;
-
 margin: 20px;
 display: flex;
 `
@@ -36,6 +35,7 @@ padding: 15px;
 min-width: 40%;
 align-items: center;
 margin:20px 0px;
+border-radius: 10px;
 `
 const Button = styled.button`
   width: 40%;
@@ -45,9 +45,10 @@ const Button = styled.button`
   color: white;
   cursor: pointer;`
 const Link = styled.a`
-margin: 5px 0px;
+margin: 15px 0px;
 font-size: 12px;
 text-decoration: underline;
+/* color: red; */
 cursor: pointer;
   `
 
