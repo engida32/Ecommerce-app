@@ -1,4 +1,6 @@
+/* eslint-disable no-unused-vars */
 import ProductInfo from './pages/ProductInfo';
+import React from 'react';
 import Register from './pages/Register';
 import Login from './pages/Login';
 import Cart from './sections/Cart';
