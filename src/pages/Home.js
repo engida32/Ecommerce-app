@@ -1,15 +1,15 @@
-import React from 'react'
-import Announcement from '../sections/Announcement'
-import Category from '../sections/Categories';
-import Navbar from '../sections/Navbar'
-import Slider from '../sections/Slider';
-import Products from '../sections/Products';
-import NewsLetter from '../sections/NewsLetter';
-import Footer from '../sections/Footer';
+import React from "react";
+import Announcement from "../sections/Announcement";
+import Category from "../sections/Categories";
+import Navbar from "../sections/Navbar";
+import Slider from "../sections/Slider";
+import Products from "../sections/Products";
+import NewsLetter from "../sections/NewsLetter";
+import Footer from "../sections/Footer";
 
 const Home = () => {
   return (
-    <div>
+    <>
       <Announcement />
       <Navbar />
       <Slider />
@@ -17,8 +17,8 @@ const Home = () => {
       <Products />
       <NewsLetter />
       <Footer />
-    </div>
-  )
-}
+    </>
+  );
+};
 
-export default Home
+export default Home;

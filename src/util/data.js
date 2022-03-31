@@ -32,7 +32,7 @@ export const categories = [
   {
     id: 2,
     img: "https://images.pexels.com/photos/2983464/pexels-photo-2983464.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    title: "LOUNGEWEAR LOVE",
+    title: "LOUNGWEAR",
   },
   {
     id: 3,
@@ -45,33 +45,57 @@ export const popularProducts = [
   {
     id: 1,
     img: "https://d3o2e4jr3mxnm3.cloudfront.net/Mens-Jake-Guitar-Vintage-Crusher-Tee_68382_1_lg.png",
+    name: "item 1",
+    price: 83,
+    discount: 5,
   },
   {
     id: 2,
-    img: 'https://o.remove.bg/downloads/7b990b10-1974-40e8-9717-bc4e6d20aefb/png-transparent-white-crew-neck-t-shirt-t-shirt-white-sleeve-hanes-t-shirts-tshirt-active-shirt-top-removebg-preview.png',
+    img: "https://o.remove.bg/downloads/7b990b10-1974-40e8-9717-bc4e6d20aefb/png-transparent-white-crew-neck-t-shirt-t-shirt-white-sleeve-hanes-t-shirts-tshirt-active-shirt-top-removebg-preview.png",
+    name: "item 2",
+    price: 93,
+    discount: 5,
   },
   {
     id: 3,
     img: "https://www.prada.com/content/dam/pradanux_products/U/UCS/UCS319/1YOTF010O/UCS319_1YOT_F010O_S_182_SLF.png",
+    name: "item 3",
+    price: 43,
+    discount: 5,
   },
   {
     id: 4,
     img: "https://www.burdastyle.com/pub/media/catalog/product/cache/7bd3727382ce0a860b68816435d76e26/107/BUS-PAT-BURTE-1320516/1170x1470_BS_2016_05_132_front.png",
+    name: "item 4",
+    price: 23,
+    discount: 5,
   },
   {
     id: 5,
     img: "https://images.ctfassets.net/5gvckmvm9289/3BlDoZxSSjqAvv1jBJP7TH/65f9a95484117730ace42abf64e89572/Noissue-x-Creatsy-Tote-Bag-Mockup-Bundle-_4_-2.png",
+    name: "item 5",
+    price: 33,
+    discount: 5,
   },
   {
     id: 6,
     img: "https://d3o2e4jr3mxnm3.cloudfront.net/Rocket-Vintage-Chill-Cap_66374_1_lg.png",
+    name: "item 6",
+    price: 333,
+    discount: 5,
   },
   {
     id: 7,
     img: "https://o.remove.bg/downloads/58bbaeb3-53ee-42c7-a60f-0e676e760808/537-5376428_jacket-png-images-with-transparent-background-for-jacket-removebg-preview.png",
+    name: "item 7",
+    price: 123,
+    discount: 5,
   },
   {
     id: 8,
     img: "https://www.pngarts.com/files/3/Women-Jacket-PNG-High-Quality-Image.png",
+    name: "item 8",
+    price: 100,
+    discount: 5,
   },
-]
+];

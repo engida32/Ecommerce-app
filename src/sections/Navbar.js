@@ -1,14 +1,33 @@
 /* eslint-disable no-unused-vars */
-import React from 'react'
+import React from "react";
 
-import SearchIcon from '@mui/icons-material/Search';
-import { Paper, Divider, alpha, Badge, AppBar, Toolbar, IconButton, Typography, MenuList, Button, Grid } from '@mui/material';
+import SearchIcon from "@mui/icons-material/Search";
+import {
+  Paper,
+  Divider,
+  alpha,
+  Badge,
+  AppBar,
+  Toolbar,
+  IconButton,
+  Typography,
+  MenuList,
+  Button,
+  Grid,
+  Container,
+} from "@mui/material";
 // import { mobile } from '../util/responsive';
-import { AddShoppingCart, LanguageOutlined, MenuOutlined, ShoppingCartOutlined } from '@mui/icons-material';
-import { CustomLink } from '../util/CustomLink';
-import { Box } from '@mui/system';
-import InputBase from '@mui/material/InputBase';
-
+import {
+  AddShoppingCart,
+  LanguageOutlined,
+  MenuOutlined,
+  ShoppingCartOutlined,
+} from "@mui/icons-material";
+import { CustomLink } from "../util/CustomLink";
+import { Box } from "@mui/system";
+import InputBase from "@mui/material/InputBase";
+import { useContext } from "react";
+import { CartContext } from "../context/Context";
 
 // const Container = styled.div`
 //   height: 60px;
@@ -103,89 +122,82 @@ import InputBase from '@mui/material/InputBase';
 // }));
 
 const Navbar = () => {
+  const { carts } = useContext(CartContext);
   return (
-    < >
-
-      <AppBar sx={{ backgroundColor: 'white' }}>
-        <Toolbar >
-          <IconButton sx={{ mr: '15px' }}>
-            <LanguageOutlined sx={{ color: '#616161' }} />
+    <Container maxWidth="sm">
+      <AppBar sx={{ backgroundColor: "white" }}>
+        <Toolbar>
+          <IconButton sx={{ mr: "15px" }}>
+            <LanguageOutlined sx={{ color: "#616161" }} />
           </IconButton>
-          <Box sx={{ display: 'flex', justifyContent: 'space-between', width: '100%' }} component='div' >
-            <Paper component="div"
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+              width: "100%",
+            }}
+            component="div"
+          >
+            <Paper
+              component="div"
               sx={{
-                ml: '0px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'flex-start',
-                height: '50%',
+                ml: "0px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "flex-start",
+                height: "50%",
                 width: 200,
-                color: '#948282'
-              }} >
+                color: "#948282",
+              }}
+            >
               <InputBase
                 sx={{ ml: 1 }}
                 placeholder="Search"
-                inputProps={{ 'aria-label': 'search' }}
+                inputProps={{ "aria-label": "search" }}
               />
-              <IconButton type="submit" sx={{ p: '10px' }} aria-label="search">
+              <IconButton type="submit" sx={{ p: "10px" }} aria-label="search">
                 <SearchIcon />
               </IconButton>
             </Paper>
             <Box>
-              <Typography variant='h3' sx={{ cursor: 'pointer', color: '#0A0909' }}> HOME</Typography>
+              <Typography
+                // variant="h3"
+                sx={{
+                  cursor: "pointer",
+                  color: "#0A0909",
+                  xs: { display: "none" },
+                }}
+              >
+                SHOP HERE
+              </Typography>
             </Box>
             <Box
               sx={{
-                display: 'flex', alignItems: 'center', justifyContent: 'flex-end'
-              }}>
-              <Typography sx={{ mr: 3, cursor: 'pointer', color: '#332E2E' }}> Register</Typography>
-              <Typography sx={{ mr: 3, cursor: 'pointer', color: '#332E2E' }}> Login</Typography>
-              <IconButton sx={{ color: '#332E2E', size: 'large' }}>
-                <Badge badgeContent={1} color="primary">
-                  <ShoppingCartOutlined />
-                </Badge>
-              </IconButton>
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "flex-end",
+              }}
+            >
+              <Typography sx={{ mr: 3, cursor: "pointer", color: "#332E2E" }}>
+                Register
+              </Typography>
+              <Typography sx={{ mr: 3, cursor: "pointer", color: "#332E2E" }}>
+                {" "}
+                Login
+              </Typography>
+              <CustomLink to="/cart">
+                <IconButton sx={{ color: "#332E2E", size: "large" }}>
+                  <Badge badgeContent={carts.length} color="primary">
+                    <ShoppingCartOutlined />
+                  </Badge>
+                </IconButton>
+              </CustomLink>
             </Box>
           </Box>
         </Toolbar>
       </AppBar>
-      {/* <Wrapper>
-        <Left>
-          <Language>EN</Language>
+    </Container>
+  );
+};
 
-
-          <SearchContianer>search..
-            <Input placeholder='' />
-            <SearchIcon style={{ color: 'gray', fontSize: 30 }} />
-          </SearchContianer>
-        </Left>
-        <Center>
-          <CustomLink to='/'>
-            <Logo>HOME</Logo>
-          </CustomLink>
-        </Center>
-        <Right>
-
-          <CustomLink to='/register'>
-            <MenuItem> REGISTER </MenuItem>
-          </CustomLink>
-
-
-
-          <CustomLink to='/login'>
-            <MenuItem> SIGN IN </MenuItem>
-          </CustomLink>
-          <MenuItem>
-            <Badge color="secondary" badgeContent={99}>
-              <CustomLink to='/cart'>
-                <AddShoppingCart />
-              </CustomLink>
-            </Badge>
-          </MenuItem>
-        </Right>
-      </Wrapper> */}
-    </ >
-  )
-}
-
-export default Navbar
+export default Navbar;
