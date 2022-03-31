@@ -1,26 +1,18 @@
-import {
-    categories
-} from '../util/data';
-import styled from 'styled-components';
-import CategoryITem from '../components/CategoryItem';
-import { mobile } from '../util/responsive';
-const Container = styled.div`
-display: flex;
-padding: 20px;
-justify-content: space-between;
-${mobile({
-    padding: '0px', flexDirection: 'column'
-})}
+import { categories } from "../util/data";
+import React from "react";
+import CategoryITem from "../components/CategoryItem";
+import { Grid } from "@mui/material";
 
-`
 const Categories = () => {
-    return (< Container >
-        {
-            categories.map(items => (
-                <CategoryITem item={items} key={items.id} />
-            ))}
-    </Container>
-    )
-}
+  return (
+    <Grid container md={12} spacing={4}>
+      {categories.map((items) => (
+        <Grid item xs={12} md={4} key={items.id}>
+          <CategoryITem item={items} />
+        </Grid>
+      ))}
+    </Grid>
+  );
+};
 
-export default Categories
+export default Categories;

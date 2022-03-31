@@ -1,51 +1,77 @@
-import React from 'react'
-import styled from 'styled-components';
-import { mobile } from '../util/responsive';
-const Container = styled.div`
-position: relative;
-`
-const Image = styled.img`
-width: 100%;
-height: 100%;
-object-fit: cover;
-${mobile({
-  height: '30vh'
-})}
-`
-const Info = styled.div`
-position: absolute;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-display: flex;
-justify-content: center;
-align-items: center;
-flex-direction: column;
-`
-const Title = styled.h1`
-color: white;
-margin-bottom: 20px;
-`
-const Button = styled.button`
-bottom: none;
-padding: 10px;
-background-color:white;
-color: gray;
-cursor: pointer;
-font-weight: 900;
-`
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
+import React from "react";
+import styled from "styled-components";
+import { mobile } from "../util/responsive";
+import { Typography } from "@mui/material";
+import { Box, fontWeight, minHeight, textAlign } from "@mui/system";
+import { Button } from "@mui/material";
+import { makeStyles } from "@mui/material";
+import { useTheme } from "@emotion/react";
+
+// const useStyles = makeStyles({
+//   container: {
+//     backgroundColor: "inherit",
+//     [useTheme().breakpoints.down("sm")]: {
+//       flexDirection: "column",
+//     },
+//   },
+// });
 
 const CategoryITem = ({ item }) => {
+  // const classes = useStyles();
   return (
-    <Container>
-      <Image src={item.img} key={item.id} />
-      <Info>
-        <Title>{item.title}</Title>
-        <Button>SHOP MOE</Button>
-      </Info>
-    </Container>
-  )
-}
+    <Box
+      component="div"
+       sx={{
+        xs: "",
+        display: "flex",
+        position: "relative",
+        height: "100vh",
+        alignItems: "center",
+        justifyContent: "center",
+        alignContent: "center",
+        objectFit: "fill",
+        background: `url( ${item.img})`,
+      }}
+    >
+      <Box
+        sx={{
+          display: "flex",
+          position: "absolute",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          alignContent: "center",
+          bottom: "0px",
+          left: 40,
+        }}
+      >
+        <Typography
+          variant="h3"
+          sx={{
+            color: "white",
+            mb: "auto",
+            textAlign: "center",
+            fontWeight: "bold",
+          }}
+        >
+          {item.title}
+        </Typography>
+        <Button
+          variant="contained"
+          disableElevation
+          sx={{
+            fontSize: "20px",
+            borderRadius: "30px",
+            mb: "10px",
+          }}
+        >
+          GET IT NOW
+        </Button>
+      </Box>
+    </Box>
+  );
+};
 
-export default CategoryITem
+export default CategoryITem;
