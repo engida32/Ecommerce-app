@@ -1,246 +1,221 @@
-import React from 'react'
-import styled from 'styled-components'
-import Announcement from './Announcement'
-import Footer from './Footer'
-import Navbar from './Navbar'
-import NewsLetter from './NewsLetter'
-import { Add, Remove } from '@mui/icons-material';
-import { mobile } from '../util/responsive';
-
-const Container = styled.div``
-const Wrapper = styled.div`
-padding: 20px;
-${mobile({
-    padding: '10px'
-})}
-`
-const Title = styled.h1`
-font-weight: 300;
-text-align: center;
-`
-const Top = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px;;
-`
-const TopButton = styled.button`
-padding: 10px;
-font-weight: 600;
-cursor: pointer;
-background-color: ${(props) => props.type === 'filled' ? 'black' : 'transparent'};
-color: ${(props) => props.type === 'filled' && 'white'};
-border: ${(props) => props.type === 'filled' && 'none'};
-`
-const TopTexts = styled.div`
-
-${mobile({
-    display: 'none'
-})}
-`
-const TopText = styled.span`
-  text-decoration: underline;
-  cursor: pointer;
-  margin: 0px 10px;
-`
-const Bottom = styled.div`
-display: flex;
-justify-content: space-between;
-${mobile({
-    flexDirection: 'column'
-})}
-`
-const Info = styled.div`
- flex: 3;
-
-/*
-display: flex; */
-`
-
-const Product = styled.div`
-display: flex;
-justify-content: space-between;
-${mobile({
-    flexDirection: 'column'
-})}
-`
-const ProductDetail = styled.div`
-  flex: 2;
-  display: flex;
-  /*
-justify-content: space-between; */
-
-`
-const Image = styled.img`
-width: 200px;
-`
-const Details = styled.div`
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-`
-const ProductName = styled.span``
-const ProductId = styled.span``
-const ProductColor = styled.div`
- width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background-color: ${(props) => props.color};
-`
-const ProductSize = styled.span``
-const PriceDetail = styled.div`
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  `
-const ProductAmountContainer = styled.div`
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px
-  ${mobile({
-    flexDirection: 'column'
-})}
-  `
-const ProductAmount = styled.div`
-  font-size: 24px;
-  margin: 5px;
-  ${mobile({
-    margin: '5px 15px'
-})}
-`
-const ProductPrice = styled.div`
-  font-size: 30px;
-  font-weight: 200;
-  ${mobile({
-    marginBottom: '20px'
-})}
-`
-const Hr = styled.hr`
-background-color: #eee;
-border: none;
-height: 1px;
-`;
-const Summary = styled.div`
-flex: 1;
-border: 0.5px solid lightgray;
-border-radius: 5px;
-padding: 20px;
-height: 50vh;
-`
-
-const SummaryTitle = styled.h1`
-font-weight: 200;
-`
-const SummaryItem = styled.div`
-margin: 30px 0px ;
-display: flex;
-justify-content: space-between;
-font-size: ${props => props.type === 'total' && '30px'};
-font-weight: ${props => props.type === 'total' && '800'};
-
-`
-const SummaryItemText = styled.span``
-const SummaryItemPrice = styled.span``
-const SummaryButton = styled.button`
-width: 100%;
-margin-top: 145px;
-padding:10px;
-background-color: black;
-color: white;
-font-weight: 600;
-`
+import React, { useEffect } from "react";
+// import styled from "styled-components";
+import Announcement from "./Announcement";
+import Footer from "./Footer";
+import Navbar from "./Navbar";
+import NewsLetter from "./NewsLetter";
+import { Box, Button, Typography } from "@mui/material";
+import theme from "../style/theme";
+import SingleCartItem from "./SingleCartItem";
+import { CartContext } from "../context/Context";
+import { useContext, useState } from "react";
+import StripeCheckout from "react-stripe-checkout";
+import axios from "axios";
 
 const Cart = () => {
-    return (
-        <Container>
-            <Navbar />
-            <Announcement />
-            <Wrapper>
-                <Title>YOUR BAG </Title>
-                <Top>
-                    <TopButton>CONTINUE SHOPPING</TopButton>
-                    <TopTexts>
-                        <TopText>Shopping Bag(2)</TopText>
-                        <TopText>Wish List(0)</TopText>
-                    </TopTexts>
-                    <TopButton type='filled'>CHECKOUT NOW </TopButton>
-                </Top>
-                <Bottom>
-                    <Info>
-                        <Product>
-                            <ProductDetail>
-                                <Image
-                                    src="https://o.remove.bg/downloads/7420524e-2361-4def-bc0b-0cb88120bcfa/yellow-women-shoes-png-image-5a3637deaad268.8499016115135026866997-removebg-preview.png"
-                                />
-                                <Details>
-                                    <ProductName><b>Product</b> JESSIE THUNDER SHOES  </ProductName>
-                                    <ProductId> <b>ID</b> 09323438748</ProductId>
-                                    <ProductColor color='black' />
-                                    <ProductSize><b> Size</b> 38.3</ProductSize>
-                                </Details>
-                            </ProductDetail>
-                            <PriceDetail>
-                                <ProductAmountContainer>
-                                    <Add />
-                                    <ProductAmount> 2</ProductAmount>
-                                    <Remove />
-                                </ProductAmountContainer>
-                                <ProductPrice>$ 222</ProductPrice>
-                            </PriceDetail>
-                        </Product>
+  const [total, setTotal] = useState(0);
+  async function handleToken(token, address) {
+    const response = axios.post("http://localhost:300/checkout", {
+      token,
+      total,
+      address,
+    });
+    console.log((await response).data);
+  }
+  // eslint-disable-next-line no-unused-vars
+  const { carts } = useContext(CartContext);
+  useEffect(() => {
+    let sum = 0;
+    carts.map((cart) => {
+      sum += cart.price;
+    });
+    setTotal(sum);
+  }, [carts]);
 
-                        <Hr />
-                        <Product>
-                            <ProductDetail>
-                                <Image
-                                    src='https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1614188818-TD1MTHU_SHOE_ANGLE_GLOBAL_MENS_TREE_DASHERS_THUNDER_b01b1013-cd8d-48e7-bed9-52db26515dc4.png?crop=1xw:1.00xh;center,top&resize=480%3A%2A'
-                                />
-                                <Details>
-                                    <ProductName><b>Product</b> JESSIE THUNDER SHOES  </ProductName>
-                                    <ProductId> <b>ID</b> 09323438748</ProductId>
-                                    <ProductColor color='green' />
-                                    <ProductSize><b> Size</b> 38.3</ProductSize>
-                                </Details>
-                            </ProductDetail>
-                            <PriceDetail>
-                                <ProductAmountContainer>
-                                    <Add />
-                                    <ProductAmount> 2</ProductAmount>
-                                    <Remove />
-                                </ProductAmountContainer>
-                                <ProductPrice>$ 222</ProductPrice>
-                            </PriceDetail>
-                        </Product>
-                    </Info>
-                    <Summary>
-                        <SummaryTitle> ORDER SUMMARY</SummaryTitle>
-                        <SummaryItem>
-                            <SummaryItemText> Subtotal</SummaryItemText>
-                            <SummaryItemPrice> $ 80</SummaryItemPrice>
-                        </SummaryItem>
-                        <SummaryItem>
-                            <SummaryItemText> Estimated Shipping</SummaryItemText>
-                            <SummaryItemPrice> $ 5.8</SummaryItemPrice>
-                        </SummaryItem>
-                        <SummaryItem>
-                            <SummaryItemText> Discount</SummaryItemText>
-                            <SummaryItemPrice> $ - 3.6</SummaryItemPrice>
-                        </SummaryItem>
-                        <SummaryItem type='total'>
-                            <SummaryItemText > Total</SummaryItemText>
-                            <SummaryItemPrice> $ 80</SummaryItemPrice>
-                        </SummaryItem>
-                        <SummaryButton> CHECKOUT</SummaryButton>
-                    </Summary>
-                </Bottom>
-            </Wrapper>
-            <NewsLetter />
-            <Footer />
-        </Container>
-    )
-}
+  console.log(carts);
+  return (
+    <>
+      <Navbar />
+      <Announcement />
+      <Box>
+        <Box
+          sx={{
+            p: "20px",
+          }}
+        >
+          <Typography
+            sx={{
+              fontWeight: 600,
+              fontSize: "32px",
+              textDecoration: "underline gray solid  ",
+              textAlign: "center",
+              mt: 5,
+            }}
+          >
+            YOUR CART
+          </Typography>
+          <Box
+            sx={{
+              display: "flex",
+              alignItem: "center",
+              justifyContent: "space-between",
+              backgroundColor: "gray",
+              p: "20px",
+              [theme.breakpoints.down("sm")]: {
+                display: "flex",
+                flexDirection: "column",
+              },
+            }}
+          >
+            <Button
+              sx={{
+                p: "10px",
+                fontWeight: 600,
+                cursor: "pointer",
+                color: "white",
+                backgroundColor: "gray",
+              }}
+            >
+              CONTINUE SHOPPING
+            </Button>
+            <Typography
+              sx={{
+                cursor: "pointer ",
+                textDecoration: "underline",
+                fontWeight: 700,
+              }}
+            >
+              {/* Your Wish List {cartNum} */}
+            </Typography>
+            <Button
+              sx={{
+                p: "10px",
+                fontWeight: 600,
+                color: "white",
+                backgroundColor: "gray",
+              }}
+            >
+              CHECKOUT NOW
+            </Button>
+          </Box>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+              [theme.breakpoints.down("sm")]: {
+                display: "flex",
+                flexDirection: "column",
+              },
+            }}
+          >
+            <Box
+              sx={{
+                flex: 3,
+              }}
+            >
+              {carts.map((cart) => (
+                <SingleCartItem
+                  setTotal={setTotal}
+                  id={cart.id}
+                  url={cart.img}
+                  name={cart.name}
+                  price={cart.price}
+                  key={cart.id}
+                />
+              ))}
+            </Box>
+            <Box
+              sx={{
+                justifyContent: "space-between",
+                border: "0.5px solid lightgray",
+                borderRadius: "5px",
+                p: "20px",
+                height: "60vh",
+              }}
+            >
+              <Typography
+                variant="h4"
+                sx={{
+                  fontWeight: 700,
+                  color: "lightsalmon",
+                }}
+              >
+                ORDER SUMMARY
+              </Typography>
+              <Box
+                sx={{
+                  m: "30px 0px",
+                  display: "flex",
+                  justifyContent: "space-between",
+                }}
+              >
+                <Typography> Subtotal</Typography>
+                <Typography> $ 80</Typography>
+              </Box>
+              <Box
+                sx={{
+                  m: "30px 0px",
+                  display: "flex",
+                  justifyContent: "space-between",
+                }}
+              >
+                <Typography> Estimated Shipping</Typography>
+                <Typography> $ 5.8</Typography>
+              </Box>
+              <Box
+                sx={{
+                  m: "30px 0px",
+                  display: "flex",
+                  justifyContent: "space-between",
+                }}
+              >
+                <Typography> Discount</Typography>
+                <Typography> $ - 3.6</Typography>
+              </Box>
+              <Box
+                sx={{
+                  m: "30px 0px",
+                  display: "flex",
+                  justifyContent: "space-between",
+                  textDecoration: "underline gray",
+                }}
+              >
+                <Typography
+                  sx={{
+                    fontSize: "30px",
+                    fontWeight: "800",
+                  }}
+                >
+                  Total
+                </Typography>
+                <Typography fontSize={27} fontWeight={700}>
+                  $ {total}
+                </Typography>
+              </Box>
+              <Button
+                sx={{
+                  mt: "145px",
+                  p: "10px",
+                  width: "100%",
+                  backgroundColor: "gray",
+                  color: "white",
+                  fontWeight: 600,
+                }}
+              >
+                <StripeCheckout
+                  stripeKey="pk_test_51Kj9MUJJu9qZoZmmBdLCQUrnfw07kt5eyvxjU0kury3xHJXmhW7Aky1VcQcNpL22130074rtTqCO4rMnib8IB5Zz00x9IO2pIj"
+                  token={handleToken}
+                  amount={total * 1.0}
+                />
+              </Button>
+            </Box>
+          </Box>
+        </Box>
+      </Box>
+      <NewsLetter />
+      <Footer />
+    </>
+  );
+};
 
-export default Cart
+export default Cart;
