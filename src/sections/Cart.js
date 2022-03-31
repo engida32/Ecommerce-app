@@ -10,7 +10,12 @@ import SingleCartItem from "./SingleCartItem";
 import { CartContext } from "../context/Context";
 import { useContext, useState } from "react";
 import StripeCheckout from "react-stripe-checkout";
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
 import axios from "axios";
+const stripePromise = loadStripe(
+  "pk_test_51Kj9MUJJu9qZoZmmBdLCQUrnfw07kt5eyvxjU0kury3xHJXmhW7Aky1VcQcNpL22130074rtTqCO4rMnib8IB5Zz00x9IO2pIj"
+);
 
 const Cart = () => {
   const [total, setTotal] = useState(0);
@@ -206,15 +211,17 @@ const Cart = () => {
                   fontWeight: 600,
                 }}
               >
-                <StripeCheckout
-                  stripeKey="pk_test_51Kj9MUJJu9qZoZmmBdLCQUrnfw07kt5eyvxjU0kury3xHJXmhW7Aky1VcQcNpL22130074rtTqCO4rMnib8IB5Zz00x9IO2pIj"
-                  token={handleToken}
-                  amount={total * 100}
-                  name="stripe test"
-                  billingAddress
-                  shippingAddress
-                  currency="usd"
-                />
+                <Elements stripe={stripePromise}>
+                  <StripeCheckout
+                    stripeKey="pk_test_51Kj9MUJJu9qZoZmmBdLCQUrnfw07kt5eyvxjU0kury3xHJXmhW7Aky1VcQcNpL22130074rtTqCO4rMnib8IB5Zz00x9IO2pIj"
+                    token={handleToken}
+                    amount={total * 100}
+                    name="stripe test"
+                    billingAddress
+                    shippingAddress
+                    currency="usd"
+                  />
+                </Elements>
               </Button>
             </Box>
           </Box>

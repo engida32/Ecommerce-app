@@ -28,6 +28,7 @@ import { Box } from "@mui/system";
 import InputBase from "@mui/material/InputBase";
 import { useContext } from "react";
 import { CartContext } from "../context/Context";
+import theme from "../style/theme";
 
 // const Container = styled.div`
 //   height: 60px;
@@ -165,7 +166,9 @@ const Navbar = () => {
                 sx={{
                   cursor: "pointer",
                   color: "#0A0909",
-                  xs: { display: "none" },
+                  [theme.breakpoints.down("sm")]: {
+                    display: "none",
+                  },
                 }}
               >
                 SHOP HERE
@@ -178,13 +181,22 @@ const Navbar = () => {
                 justifyContent: "flex-end",
               }}
             >
-              <Typography sx={{ mr: 3, cursor: "pointer", color: "#332E2E" }}>
-                Register
-              </Typography>
-              <Typography sx={{ mr: 3, cursor: "pointer", color: "#332E2E" }}>
-                {" "}
-                Login
-              </Typography>
+              <Box
+                sx={{
+                  display: "flex",
+                  [theme.breakpoints.down("sm")]: {
+                    display: "none",
+                  },
+                }}
+              >
+                <Typography sx={{ mr: 3, cursor: "pointer", color: "#332E2E" }}>
+                  Register
+                </Typography>
+                <Typography sx={{ mr: 3, cursor: "pointer", color: "#332E2E" }}>
+                  {" "}
+                  Login
+                </Typography>
+              </Box>
               <CustomLink to="/cart">
                 <IconButton sx={{ color: "#332E2E", size: "large" }}>
                   <Badge badgeContent={carts.length} color="primary">
