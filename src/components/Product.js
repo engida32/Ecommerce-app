@@ -30,12 +30,12 @@ const useStyles = makeStyles({
     transition: "all 0.6s ease-in-out",
   },
   Container: {
-    borderRadius: 12,
+    // borderRadius: 12,
     m: "10px",
     minWidth: "280px",
     height: "350px",
     display: "flex",
-    alignItem: "center",
+    alignItems: "center",
     justifyContent: "center",
     backgroundColor: "#f5fbfd",
     position: "relative",
@@ -43,21 +43,24 @@ const useStyles = makeStyles({
       "& $Info": {
         opacity: 1,
       },
+      cursor: "pointer",
     },
   },
   Icon: {
     width: "40px",
     height: "40px",
     borderRadius: "50%",
-    backgroundColor: "white",
+
     alignItems: "center",
     justifyContent: "center",
     margin: "10px",
     display: "flex",
     transition: "all 0.5s ease-in-out",
     "&:hover": {
-      backgroundColor: "#e9f232",
-      transform: "scale(1.5)",
+      backgroundColor: "white",
+      color: "yellow",
+      fontSize: "12px",
+      transform: "scale(1.9)",
     },
   },
 });
@@ -100,7 +103,12 @@ const Product = ({ item }) => {
         </IconButton>
 
         <IconButton className={classes.Icon}>
-          <SearchOutlined />
+          <SearchOutlined
+          // sx={{
+          //   color: "#e9f232",
+          //   backgroundColor: "transparent",
+          // }}
+          />
         </IconButton>
         <IconButton className={classes.Icon}>
           <CustomLink to="/product">

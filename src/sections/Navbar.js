@@ -18,6 +18,7 @@ import {
 } from "@mui/material";
 // import { mobile } from '../util/responsive';
 import {
+  AccountBox,
   AddShoppingCart,
   LanguageOutlined,
   MenuOutlined,
@@ -29,101 +30,31 @@ import InputBase from "@mui/material/InputBase";
 import { useContext } from "react";
 import { CartContext } from "../context/Context";
 import theme from "../style/theme";
+import { makeStyles } from "@mui/styles";
+import { Backdrop } from "@mui/material";
+import CircularProgress from "@mui/material/CircularProgress";
 
-// const Container = styled.div`
-//   height: 60px;
-//   ${mobile({
-//   height: "55px"
-// })}
-// `;
-
-// const Wrapper = styled.div`
-//   padding: 10px 20px;
-//   display: flex;
-//   align-items: center;
-//   justify-content: space-between;
-//   ${mobile({
-//   padding: "10px 0px"
-// })}
-// `;
-
-// const Left = styled.div`
-//   flex: 1;
-//   display: flex;
-//   align-items: center;
-// `;
-
-// const Language = styled.span`
-//   font-size: 14px;
-//   cursor: pointer;
-//   ${mobile({ display: "none" })}
-// `;
-
-// const SearchContianer = styled.div`
-//   border: 0.5px solid gray;
-//   display: flex;
-//   align-items: center;
-//   margin-left: 25px;
-//   border-radius: 10px;
-//   padding: 5px;
-//     ${mobile({
-
-// })}
-// `;
-
-// const Input = styled.input`
-//   border: none;
-//   ${mobile({ width: "60px", border: "none" })}
-// `;
-
-// const Center = styled.div`
-//   flex: 1;
-//   text-align: center;
-//     ${mobile({
-//   display: "none"
-// })}
-// `;
-
-// const Logo = styled.h1`
-//   font-weight: bold;
-//   cursor: pointer;
-//   ${mobile({
-//   fontSize: "18px"
-// })}
-// `;
-// const Right = styled.div`
-//   flex: 1;
-//   display: flex;
-//   align-items: center;
-//   justify-content: flex-end;
-//   ${mobile({ flex: 2, justifyContent: "center" })}
-// `;
-
-// const MenuItem = styled.div`
-//   font-size: 14px;
-//   cursor: pointer;
-//   margin-left: 25px;
-//   cursor: pointer;
-//   ${mobile({ fontSize: "12px", marginLeft: "10px" })}
-// `;
-// const Search = styled('div')(({ theme }) => ({
-//   position: 'relative',
-//   borderRadius: theme.shape.borderRadius,
-//   backgroundColor: alpha(theme.palette.common.white, 0.15),
-//   '&:hover': {
-//     backgroundColor: alpha(theme.palette.common.white, 0.25),
-//   },
-//   marginRight: theme.spacing(2),
-//   marginLeft: 0,
-//   width: '100%',
-//   [theme.breakpoints.up('sm')]: {
-//     marginLeft: theme.spacing(3),
-//     width: 'auto',
-//   },
-// }));
-
+const useStyles = makeStyles({
+  AccountBox: {
+    display: "flex",
+    p: "10px",
+    opacity: 0,
+    [theme.breakpoints.down("sm")]: {
+      opacity: 1,
+    },
+  },
+});
 const Navbar = () => {
   const { carts } = useContext(CartContext);
+  const classes = useStyles();
+  const [open, setOpen] = React.useState(false);
+  const handleClose = () => {
+    setOpen(false);
+  };
+  const handleToggle = () => {
+    setOpen(!open);
+  };
+
   return (
     <Container maxWidth="sm">
       <AppBar sx={{ backgroundColor: "white" }}>
@@ -160,9 +91,15 @@ const Navbar = () => {
                 <SearchIcon />
               </IconButton>
             </Paper>
-            <Box>
+
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+              }}
+            >
               <Typography
-                // variant="h3"
+                variant="h6"
                 sx={{
                   cursor: "pointer",
                   color: "#0A0909",
@@ -171,8 +108,73 @@ const Navbar = () => {
                   },
                 }}
               >
-                SHOP HERE
+                SHOPIFY
               </Typography>
+              <IconButton className={classes.AccountBox}>
+                <AccountBox onClick={handleToggle} />
+                <Box
+                  sx={{
+                    height: "50%",
+                  }}
+                >
+                  <Backdrop
+                    sx={{
+                      color: "#fefef",
+                      height: "50%",
+                      zIndex: (theme) => theme.zIndex.drawer + 1,
+                    }}
+                    open={open}
+                    onClick={handleClose}
+                  >
+                    <Box
+                      sx={{
+                        backgroundColor: " transparent",
+                        display: "flex",
+                        flexDirection: "column",
+                      }}
+                    >
+                      <CustomLink to="/register">
+                        <Button
+                          sx={{
+                            border: "1px solid white",
+                            mb: 2,
+                          }}
+                        >
+                          <Typography
+                            sx={{
+                              cursor: "pointer",
+                              color: "white",
+                              fontSize: "31px",
+                              fontWeight: 500,
+                            }}
+                          >
+                            Register
+                          </Typography>
+                        </Button>
+                      </CustomLink>
+                      <CustomLink to="/login">
+                        <Button
+                          sx={{
+                            border: "1px solid white",
+                          }}
+                        >
+                          <Typography
+                            sx={{
+                              cursor: "pointer",
+                              color: "white",
+                              fontSize: "31px",
+                              fontWeight: 500,
+                            }}
+                          >
+                            LOGIN
+                          </Typography>
+                        </Button>
+                      </CustomLink>
+                      {/* <CircularProgress color="inherit" /> */}
+                    </Box>
+                  </Backdrop>
+                </Box>
+              </IconButton>
             </Box>
             <Box
               sx={{
@@ -193,7 +195,6 @@ const Navbar = () => {
                   Register
                 </Typography>
                 <Typography sx={{ mr: 3, cursor: "pointer", color: "#332E2E" }}>
-                  {" "}
                   Login
                 </Typography>
               </Box>

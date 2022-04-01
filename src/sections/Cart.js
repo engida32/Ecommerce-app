@@ -10,34 +10,12 @@ import SingleCartItem from "./SingleCartItem";
 import { CartContext } from "../context/Context";
 import { useContext, useState } from "react";
 import StripeCheckout from "react-stripe-checkout";
-// import { Elements } from "@stripe/react-stripe-js";
-// import { loadStripe } from "@stripe/stripe-js";
 import axios from "axios";
-// import { PaymentElement } from "@stripe/react-stripe-js";
-
-// const stripePromise = loadStripe(
-//   "pk_test_51Kj9MUJJu9qZoZmmBdLCQUrnfw07kt5eyvxjU0kury3xHJXmhW7Aky1VcQcNpL22130074rtTqCO4rMnib8IB5Zz00x9IO2pIj"
-// );
+import { toast } from "react-toastify";
 
 const Cart = () => {
+  toast.configure();
   const [total, setTotal] = useState(0);
-  async function handleToken(e, token, address, amount, name) {
-    // const { error .e } = await stripe.createToken(cardElement);
-    // const cardElement = elements.getElement(CardElement);
-
-    e.preventDefault();
-    const response = axios
-      .post("http://localhost:5000/api/stripe/charge", {
-        token,
-        total,
-        address,
-        currency: "USB",
-        amount,
-        name,
-      })
-      .console.log((await response).data);
-  }
-  // eslint-disable-next-line no-unused-vars
   const { carts } = useContext(CartContext);
   useEffect(() => {
     let sum = 0;
@@ -47,7 +25,30 @@ const Cart = () => {
     setTotal(sum);
   }, [carts]);
 
-  console.log(carts);
+  async function handleToken(token, amount, name, email, currency, address) {
+    console.log(token);
+    // e.preventDefault();
+    // let payAmount=
+    const response = await axios.post("http://localhost:8080/checkout", {
+      token,
+      address,
+      currency,
+      amount: total,
+      name,
+    });
+    const { status } = response.data;
+    console.log(amount);
+
+    if (status === "success") {
+      setTotal(0);
+
+      toast("Success! Check email for details", { type: "success" });
+    } else {
+      toast("Something went wrong", { type: "error" });
+    }
+  }
+  // eslint-disable-next-line no-unused-vars
+
   return (
     <>
       <Navbar />
@@ -222,10 +223,9 @@ const Cart = () => {
                   stripeKey="pk_test_51Kj9MUJJu9qZoZmmBdLCQUrnfw07kt5eyvxjU0kury3xHJXmhW7Aky1VcQcNpL22130074rtTqCO4rMnib8IB5Zz00x9IO2pIj"
                   token={handleToken}
                   amount={total * 100}
-                  name="stripe test"
-                  billingAddress
+                  name="stripe engida"
+                  billingAddress={true}
                   shippingAddress
-                  currency
                 />
                 {/* </Elements> */}
               </Button>

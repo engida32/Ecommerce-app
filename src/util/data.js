@@ -51,7 +51,7 @@ export const popularProducts = [
   },
   {
     id: 2,
-    img: "http://clipart-library.com/new_gallery/101-1011752_jacket-clothes-free-png-transparent-background-images-png.png",
+    img: "https://png.pngtree.com/png-vector/20220212/ourlarge/pngtree-bomber-jacket-back-view-black-colour-png-image_4386331.png",
     name: "item 2",
     price: 93,
     discount: 5,
@@ -86,21 +86,21 @@ export const popularProducts = [
   },
   {
     id: 7,
-    img: "https://o.remove.bg/downloads/58bbaeb3-53ee-42c7-a60f-0e676e760808/537-5376428_jacket-png-images-with-transparent-background-for-jacket-removebg-preview.png",
+    img: "https://png.pngtree.com/element_our/png_detail/20180918/premium-white-t-shirt--mockup-png_107102.jpg",
     name: "item 7",
     price: 123,
     discount: 5,
   },
   {
     id: 8,
-    img: "https://pngset.com/images/dynamite-leather-jacket-leather-jacket-clothing-apparel-coat-blazer-transparent-png-2930412.png",
+    img: "https://png.pngtree.com/png-vector/20210106/ourlarge/pngtree-mens-clothing-white-clothes-png-image_2686091.jpg",
     name: "item 8",
     price: 100,
     discount: 5,
   },
   {
     id: 9,
-    img: "https://d3o2e4jr3mxnm3.cloudfront.net/Rocket-Vintage-Chill-Cap_66374_1_lg.png",
+    img: "https://r1.hiclipart.com/path/564/719/804/ahtu9ih5i42kt2jkfso6po3co0-ec50459a58a3182856ca55514a138825.png?dl=1",
     name: "item 6",
     price: 333,
     discount: 5,
@@ -108,7 +108,21 @@ export const popularProducts = [
 
   {
     id: 10,
-    img: "https://d3o2e4jr3mxnm3.cloudfront.net/Rocket-Vintage-Chill-Cap_66374_1_lg.png",
+    img: "https://r7.hiclipart.com/path/182/43/822/dress-flower-girl-evening-gown-formal-wear-wedding-b6821c98ede274dff01d5a6cf2ff7f23.png?dl=1",
+    name: "item 6",
+    price: 333,
+    discount: 5,
+  },
+  {
+    id: 10,
+    img: "https://r7.hiclipart.com/path/158/414/484/cartoon-commerce-vector-cartoon-business-man-7e2de3cd4882246ff47bc24c0871a6b9.png?dl=1",
+    name: "item 6",
+    price: 333,
+    discount: 5,
+  },
+  {
+    id: 10,
+    img: "https://r7.hiclipart.com/path/127/713/310/dress-t-shirt-girl-dress-96a1d04715d0d5af4578890ae10f9ed4.png?dl=1",
     name: "item 6",
     price: 333,
     discount: 5,
