@@ -12,7 +12,7 @@ import { useContext, useState } from "react";
 import StripeCheckout from "react-stripe-checkout";
 import axios from "axios";
 import { toast } from "react-toastify";
-
+import "react-toastify/dist/ReactToastify.css";
 const Cart = () => {
   toast.configure();
   const [total, setTotal] = useState(0);
