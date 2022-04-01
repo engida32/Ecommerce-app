@@ -5,65 +5,25 @@ import NewsLetter from "../sections/NewsLetter";
 import Footer from "../sections/Footer";
 import Announcement from "../sections/Announcement";
 import { Add, Remove } from "@mui/icons-material";
-import { mobile } from "../util/responsive";
+import Button from "@mui/material/Button";
 import { CustomLink } from "../util/CustomLink";
+import { Box, Typography, Select, FormControl, MenuItem } from "@mui/material";
+import theme from "../style/theme";
+import { useState } from "react";
+// import { makeStyles } from "@mui/styles";
 
-const Container = styled.div``;
-const Wrapper = styled.div`
-  padding: 50px;
-  display: flex;
-  ${mobile({
-    flexDirection: "column",
-    padding: "10px",
-  })}
-`;
-const ImageContainer = styled.div`
-  flex: 1;
-`;
-const Image = styled.img`
-  width: 100%;
-  height: 90vh;
-  object-fit: cover;
-  ${mobile({
-    height: "50%",
-  })}
-`;
-const InfoContainer = styled.div`
-  flex: 1;
-  padding: 0px 50px;
-  ${mobile({
-    padding: "10px",
-  })}
-`;
-const Title = styled.h1`
-  font-weight: 200;
-`;
-const Desc = styled.h2`
-  font-weight: 200;
-  margin: 20px 0px;
-`;
-const Price = styled.h2`
-  font-weight: 500;
-  font-size: 40px;
-`;
+// const useStyles = makeStyles({
+//   filterColor: {
+//     width: "20px",
+//     height: "20px",
+//     borderRadius: "50%",
+//     color: "red",
+//     backgroundColor: "red",
+//     margin: " 0px 5px",
+//     cursor: "pointer",
+//   },
+// });
 
-const FilterContainer = styled.div`
-  display: flex;
-  width: 50%;
-  margin: 30px, 0px;
-  justify-content: space-between;
-  ${mobile({
-    width: "100%",
-  })}
-`;
-const Filter = styled.div`
-  display: flex;
-  align-items: center;
-`;
-const FilterTitle = styled.span`
-  font-size: 20px;
-  font-weight: 200;
-`;
 const FilterColor = styled.div`
   width: 20px;
   height: 20px;
@@ -72,104 +32,219 @@ const FilterColor = styled.div`
   margin: 0px 5px;
   cursor: pointer;
 `;
-const FilterSize = styled.select`
-  margin-left: 10px;
-  padding: 5px;
-`;
-const FilterSizeOption = styled.option``;
-const AddContainer = styled.div`
-  width: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 20px;
-  ${mobile({
-    width: "100%",
-  })}
-`;
-const AmountContainer = styled.div`
-  display: flex;
-  align-items: center;
-  font-weight: 700;
-`;
-const Amount = styled.div`
-  width: 30px;
-  height: 30px;
-  border-radius: 10px;
-  border: 1px solid teal;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0px 5px;
-`;
-const Button = styled.button`
-  margin-left: 30px;
-  padding: 15px;
-  border: 2px solid teal;
-  background-color: white;
-  cursor: pointer;
-  font-weight: 500;
-
-  &:hover {
-    background: teal;
-    transition: 3 sec ease-in;
-  }
-`;
 
 const ProductInfo = () => {
+  // const classes = useStyles();
+  const [size, setSize] = useState("Size");
+
+  const handleChange = (event) => {
+    setSize(event.target.value);
+  };
   return (
-    <Container>
+    <Box>
       <Announcement />
       <Navbar />
-      <Wrapper>
-        <ImageContainer>
-          <Image src="https://i.ibb.co/S6qMxwr/jean.jpg/" />
-        </ImageContainer>
-        <InfoContainer>
-          <Title>Denim Jump Suit</Title>
-          <Desc>
+      <Box
+        sx={{
+          p: "50px",
+          display: "flex",
+          [theme.breakpoints.down("md")]: {
+            flexDirection: "column",
+            padding: "10px",
+          },
+        }}
+      >
+        <Box flex={1}>
+          <Box
+            component={"img"}
+            sx={{
+              width: " 100%",
+              height: "70vh",
+              objectFit: " cover",
+              [theme.breakpoints.down("md")]: {
+                height: "50%",
+              },
+            }}
+            src="https://i.ibb.co/S6qMxwr/jean.jpg/"
+          />
+        </Box>
+        <Box
+          sx={{
+            flex: 1,
+            padding: "0px 50px",
+            [theme.breakpoints.down("md")]: {
+              height: "20px",
+            },
+          }}
+        >
+          <Typography variant="h3" sx={{ fontWeight: 400 }}>
+            Denim Jump Suit
+          </Typography>
+          <Typography
+            variant="h5"
+            sx={{
+              fontWeight: 200,
+              m: "20px,0px",
+            }}
+          >
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Volupta
             tum voluptatibus ducimus delectus ut, deserunt nihil obcaecati odit
             p laceat voluptas quasi exImage plicabo voluptate. Maxime dolor
-            neque ullam placeat nisi facilis ipsam. Lorem ipsum, dolor sit amet
-            consectetur adipisicing elit. In, reprehenderit!
-          </Desc>
+          </Typography>
 
-          <Price> $ 40</Price>
+          <Typography
+            variant="h2"
+            sx={{
+              fontWeight: 500,
+              fontSize: "40px",
+            }}
+          >
+            {" "}
+            $ 40
+          </Typography>
 
-          <FilterContainer>
-            <Filter>
-              <FilterTitle> Color</FilterTitle>
+          <Box
+            sx={{
+              display: "flex",
+              width: "50%",
+              margin: "30px, 0px",
+              justifyContent: "space-between",
+              [theme.breakpoints.down("md")]: {
+                width: "100%",
+              },
+            }}
+          >
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                alignContent: "center",
+              }}
+            >
+              <Typography
+                variant="span"
+                sx={{
+                  fontWeight: 500,
+                  fontSize: "20px",
+                }}
+              >
+                Color
+              </Typography>
               <FilterColor color="black" />
               <FilterColor color="darkblue" />
               <FilterColor color="gray" />
-            </Filter>
-            <Filter>
-              <FilterTitle> Size</FilterTitle>
-              <FilterSize>
-                <FilterSizeOption>XS</FilterSizeOption>
-                <FilterSizeOption>S</FilterSizeOption>
-                <FilterSizeOption>M</FilterSizeOption>
-                <FilterSizeOption>L</FilterSizeOption>
-                <FilterSizeOption>XL</FilterSizeOption>
-              </FilterSize>
-            </Filter>
-          </FilterContainer>
-          <AddContainer>
-            <AmountContainer>
-              <Remove />
-              <Amount> 1</Amount>
-              <Add />
+            </Box>
+            <Box
+              Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+              }}
+            >
+              <Typography
+                variant="span"
+                sx={{
+                  fontSize: "20px",
+                  fontWeight: 200,
+                }}
+              >
+                Size
+              </Typography>
+              <FormControl fullWidth>
+                <Select
+                  labelId="demo-simple-select-filled-label"
+                  id="demo-simple-select-filled"
+                  value={size}
+                  onChange={handleChange}
+                  sx={{
+                    ml: "10px",
+                    p: "5px",
+                    border: "none",
+                  }}
+                >
+                  <MenuItem value={size} disabled>
+                    select Size
+                  </MenuItem>
+                  <MenuItem value={"XS"}>XS</MenuItem>
+                  <MenuItem value={"S"}>S</MenuItem>
+                  <MenuItem value={"M"}>M</MenuItem>
+                  <MenuItem value={"L"}>L</MenuItem>
+                  <MenuItem value={"XL"}>XL</MenuItem>
+                </Select>
+              </FormControl>
+            </Box>
+          </Box>
+          <Box
+            sx={{
+              width: "50%",
+              display: "flex",
+              alignItem: "center",
+              justifyContent: "space-between",
+              [theme.breakpoints.down("md")]: {
+                width: "100%",
+              },
+            }}
+          >
+            <Box
+              sx={{
+                display: "flex",
+                alignItem: "center",
+                fontWeight: 700,
+              }}
+            >
+              <Remove
+                sx={{
+                  cursor: "pointer",
+                  width: "50px",
+                  height: "50px",
+                }}
+              />
+              <Box
+                sx={{
+                  width: "40px",
+                  height: "40px",
+                  borderRadius: "10px",
+                  border: "1px solid teal",
+                  display: "flex",
+                  justifyContent: "center",
+                  m: "10px  5px",
+                  p: "10px",
+                }}
+              >
+                1
+              </Box>
+              <Add
+                sx={{
+                  cursor: "pointer",
+                  width: "50px",
+                  height: "50px",
+                }}
+              />
               <CustomLink to="/cart">
-                <Button>ADD TO CART</Button>
+                <Button
+                  sx={{
+                    ml: "30px",
+                    p: "15px",
+                    border: "2px solid teal ",
+                    backgroundColor: "white",
+                    cursor: "pointer",
+                    fontWeight: 500,
+                    "&:hover": {
+                      background: "teal",
+                      transition: "3 sec ease-in",
+                    },
+                  }}
+                >
+                  ADD TO CART
+                </Button>
               </CustomLink>
-            </AmountContainer>
-          </AddContainer>
-        </InfoContainer>
-      </Wrapper>
+            </Box>
+          </Box>
+        </Box>
+      </Box>
       <NewsLetter />
       <Footer />
-    </Container>
+    </Box>
   );
 };
 

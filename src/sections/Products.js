@@ -8,12 +8,13 @@ const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  ${mobile({
-    // display: 'none',
-    // ObjectFit: 'cover',
-    justifyContent: "center",
-    padding: "0px",
-  })}
+  background-color: red
+    ${mobile({
+      // display: 'none',
+      // ObjectFit: 'cover',
+      justifyContent: "center",
+      padding: "0px",
+    })};
 `;
 const Products = () => {
   return (

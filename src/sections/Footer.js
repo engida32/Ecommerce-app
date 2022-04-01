@@ -1,6 +1,9 @@
 import {
   FacebookOutlined,
   Instagram,
+  MailOutlined,
+  PhoneAndroidOutlined,
+  RoomOutlined,
   //   MailOutlined,
   //   PhoneAndroidOutlined,
   //   RoomOutlined,
@@ -91,13 +94,13 @@ const Footer = () => {
   return (
     <Grid
       container
-      spacing={{ xs: 2, md: 3 }}
-      columns={{ xs: 1, sm: 3, md: 4 }}
+      spacing={{ xs: 2, md: 9 }}
+      // columns={{ xs: 1, sm: 3, md: 4 }}
       sx={{
         display: "flex",
       }}
     >
-      <Grid item xs={4}>
+      <Grid item xs={3}>
         <Logo>DEV</Logo>
         <Desc>
           Lorem Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro,
@@ -135,22 +138,34 @@ const Footer = () => {
           <ListItem>Terms</ListItem>
         </List>
       </Grid>
-      {/* <Right>
-        <Title>Contact</Title>
-        <ContactItem>
+      <Grid
+        item
+        xs={3}
+        sx={{
+          flex: 1,
+          p: "20px",
+        }}
+      >
+        <Typography fontWeight={300}>Contact</Typography>
+        <List
+          sx={{
+            marginBottom: "10px",
+            width: "50%",
+          }}
+        >
           <RoomOutlined style={{ marginRight: "10px" }} />
           321 AA bole{" "}
-        </ContactItem>
-        <ContactItem>
+        </List>
+        <List>
           <PhoneAndroidOutlined style={{ marginRight: "10px" }} />
           (125) 435 4522
-        </ContactItem>
-        <ContactItem>
+        </List>
+        <List>
           <MailOutlined style={{ marginRight: "10px" }} />
           contact@dev.com
-        </ContactItem>
-        <Payment src="https://i.ibb.co/Qfvn4z6/payment.png" />
-      </Right> */}
+        </List>
+        {/* <Image src="https://i.ibb.co/Qfvn4z6/payment.png" /> */}
+      </Grid>
     </Grid>
   );
 };

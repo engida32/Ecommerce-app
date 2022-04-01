@@ -10,26 +10,32 @@ import SingleCartItem from "./SingleCartItem";
 import { CartContext } from "../context/Context";
 import { useContext, useState } from "react";
 import StripeCheckout from "react-stripe-checkout";
-import { Elements } from "@stripe/react-stripe-js";
-import { loadStripe } from "@stripe/stripe-js";
+// import { Elements } from "@stripe/react-stripe-js";
+// import { loadStripe } from "@stripe/stripe-js";
 import axios from "axios";
-const stripePromise = loadStripe(
-  "pk_test_51Kj9MUJJu9qZoZmmBdLCQUrnfw07kt5eyvxjU0kury3xHJXmhW7Aky1VcQcNpL22130074rtTqCO4rMnib8IB5Zz00x9IO2pIj"
-);
+// import { PaymentElement } from "@stripe/react-stripe-js";
+
+// const stripePromise = loadStripe(
+//   "pk_test_51Kj9MUJJu9qZoZmmBdLCQUrnfw07kt5eyvxjU0kury3xHJXmhW7Aky1VcQcNpL22130074rtTqCO4rMnib8IB5Zz00x9IO2pIj"
+// );
 
 const Cart = () => {
   const [total, setTotal] = useState(0);
-  async function handleToken(e, token, address, currency, amount, name) {
-    const response = axios.post("http://localhost:5000/api/stripe/charge", {
-      token,
-      total,
-      address,
-      currency,
-      amount,
-      name,
-    });
+  async function handleToken(e, token, address, amount, name) {
+    // const { error .e } = await stripe.createToken(cardElement);
+    // const cardElement = elements.getElement(CardElement);
 
-    console.log((await response).data);
+    e.preventDefault();
+    const response = axios
+      .post("http://localhost:5000/api/stripe/charge", {
+        token,
+        total,
+        address,
+        currency: "USB",
+        amount,
+        name,
+      })
+      .console.log((await response).data);
   }
   // eslint-disable-next-line no-unused-vars
   const { carts } = useContext(CartContext);
@@ -211,17 +217,17 @@ const Cart = () => {
                   fontWeight: 600,
                 }}
               >
-                <Elements stripe={stripePromise}>
-                  <StripeCheckout
-                    stripeKey="pk_test_51Kj9MUJJu9qZoZmmBdLCQUrnfw07kt5eyvxjU0kury3xHJXmhW7Aky1VcQcNpL22130074rtTqCO4rMnib8IB5Zz00x9IO2pIj"
-                    token={handleToken}
-                    amount={total * 100}
-                    name="stripe test"
-                    billingAddress
-                    shippingAddress
-                    currency="usd"
-                  />
-                </Elements>
+                {/* <Elements stripe={stripePromise}> */}
+                <StripeCheckout
+                  stripeKey="pk_test_51Kj9MUJJu9qZoZmmBdLCQUrnfw07kt5eyvxjU0kury3xHJXmhW7Aky1VcQcNpL22130074rtTqCO4rMnib8IB5Zz00x9IO2pIj"
+                  token={handleToken}
+                  amount={total * 100}
+                  name="stripe test"
+                  billingAddress
+                  shippingAddress
+                  currency
+                />
+                {/* </Elements> */}
               </Button>
             </Box>
           </Box>

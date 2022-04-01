@@ -11,176 +11,145 @@ import theme from "../style/theme";
 import Select from "@mui/material/Select";
 import { FormControl } from "@mui/material";
 
-// const Title = styled.h1`
-//   margin: 20px;
-// `;
-
-// const FilterContainer = styled.div`
-//   display: flex;
-//   justify-content: space-between;
-//   margin-left: 10px;
-// `;
-// const Filter = styled.div`
-//   margin: 20px;
-//   ${mobile({
-//     marginRight: "0px 20px",
-//     display: "flex",
-//     flexDirection: "column",
-//   })}
-// `;
-
-// const FilterText = styled.span`
-//   font-size: 20px;
-//   font-weight: 600;
-//   margin-right: 20px;
-//   ${mobile({
-//     marginRight: "0px",
-//   })}
-// `;
-// const Select = styled.select`
-//   padding: 10px;
-//   margin-right: 20px;
-//   margin-left: 20px;
-//   ${mobile({
-//     margin: "10px 0px",
-//   })}
-// `;
-// const Option = styled.option``;
 const ProductList = () => {
+  const [age, setAge] = React.useState("");
+
+  const handleChange = (event) => {
+    setAge(event.target.value);
+  };
+
   return (
     <>
       <Announcement />
       <Navbar />
       <Box
         sx={{
-          alignContent: "center",
+          [theme.breakpoints.down("md")]: {
+            display: "flex",
+            flexDirection: "column",
+            alignContent: "center",
+            alignItem: "center",
+          },
         }}
       >
-        <Typography> Dresses</Typography>
         <Box
           sx={{
-            display: "flex",
-            justifyContent: "space-between",
-            ml: "10px",
+            alignContent: "center",
           }}
         >
-          <Box m={10}>
-            <Typography
-              variant="span"
-              sx={{
-                fontSize: "20px",
-                fontWeight: 600,
-                mr: "20px",
-                [theme.breakpoints.down("md")]: {
-                  mr: 0,
-                },
-              }}
-            >
-              Filter Product
-              <FormControl>
-                <InputLabel
-                  sx={{
-                    alignContent: "center",
-                  }}
-                >
-                  Color
-                </InputLabel>
-                <Select
-                  sx={{
-                    p: "10px",
-                    mr: "20px",
-                    ml: "20px",
-                    [theme.breakpoints.down("md")]: {
-                      m: 0,
-                    },
-                  }}
-                  label="Age"
-                >
-                  <MenuItem>White</MenuItem>
-                  <MenuItem>Black</MenuItem>
-                  <MenuItem>Red</MenuItem>
-                  <MenuItem>Yellow</MenuItem>
-                  <MenuItem>Green</MenuItem>
-                  <MenuItem>Pink</MenuItem>
-                </Select>
-              </FormControl>
-              <FormControl>
-                <InputLabel
-                  sx={{
-                    alignContent: "center",
-                  }}
-                >
-                  Size
-                </InputLabel>
-                <Select
-                  sx={{
-                    p: "10px",
-                    mr: "20px",
-                    ml: "20px",
-                    [theme.breakpoints.down("md")]: {
-                      m: 0,
-                    },
-                  }}
-                  label="Age"
-                >
-                  <MenuItem>XS</MenuItem>
-                  <MenuItem>S</MenuItem>
-                  <MenuItem>M</MenuItem>
-                  <MenuItem>L</MenuItem>
-                  <MenuItem>XL</MenuItem>
-                  <MenuItem>XXL</MenuItem>
-                </Select>
-              </FormControl>
-            </Typography>
-          </Box>
           <Box
             sx={{
-              m: "20px",
-              [theme.breakpoints.down("md")]: {
-                mr: "0px 20px",
-                display: "flex",
-                flexDirection: "column",
-              },
+              display: "flex",
+              justifyContent: "space-between",
+              alignItem: "center",
+              mt: "100px",
             }}
           >
-            <Typography
-              variant="span"
+            <Box m={10}>
+              <Typography
+                variant="span"
+                sx={{
+                  fontSize: "20px",
+                  fontWeight: 600,
+                  mr: "20px",
+                  alignContent: "center",
+                  [theme.breakpoints.down("md")]: {
+                    mr: 0,
+                  },
+                }}
+              >
+                Filter Product
+              </Typography>
+              <Box
+                sx={{
+                  display: "flex",
+                  justifyContent: "space-around",
+                  alignContent: "center",
+                }}
+              >
+                <FormControl fullWidth>
+                  <InputLabel id="demo-simple-select-label">Color</InputLabel>
+                  <Select
+                    value={age}
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
+                    label="Age"
+                    onChange={handleChange}
+                  >
+                    <MenuItem>White</MenuItem>
+                    <MenuItem>Black</MenuItem>
+                    <MenuItem>Red</MenuItem>
+                    <MenuItem>Yellow</MenuItem>
+                    <MenuItem>Green</MenuItem>
+                    <MenuItem>Pink</MenuItem>
+                  </Select>
+                </FormControl>
+
+                <FormControl
+                  fullWidth
+                  sx={{
+                    m: "5px",
+                  }}
+                >
+                  <InputLabel id="demo-simple-select-label">Size</InputLabel>
+                  <Select
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
+                    // value={age}
+                    // label="Age"
+                    onChange={handleChange}
+                  >
+                    <MenuItem>XS</MenuItem>
+                    <MenuItem>S</MenuItem>
+                    <MenuItem>M</MenuItem>
+                    <MenuItem>L</MenuItem>
+                    <MenuItem>XL</MenuItem>
+                    <MenuItem>XXL</MenuItem>
+                  </Select>
+                </FormControl>
+              </Box>
+            </Box>
+            <Box
               sx={{
-                fontSize: "20px",
-                fontWeight: 600,
-                mr: "20px",
+                m: "20px",
+                p: 8,
                 [theme.breakpoints.down("md")]: {
-                  mr: 0,
+                  mr: "0px 20px",
+                  display: "flex",
+                  flexDirection: "column",
                 },
               }}
             >
-              Sort Product
-              <FormControl>
-                <InputLabel
-                  sx={{
-                    alignContent: "center",
-                  }}
-                >
-                  Size
-                </InputLabel>
+              <Typography
+                variant="span"
+                sx={{
+                  fontSize: "20px",
+                  fontWeight: 600,
+                  mr: "20px",
+                  [theme.breakpoints.down("md")]: {
+                    mr: 0,
+                  },
+                }}
+              >
+                Sort Product
+              </Typography>
+              <FormControl fullWidth>
+                {/* <InputLabel id="demo-simple-select-label">Newst</InputLabel> */}
                 <Select
-                  sx={{
-                    p: "10px",
-                    mr: "20px",
-                    ml: "20px",
-                    [theme.breakpoints.down("md")]: {
-                      m: 0,
-                    },
-                  }}
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select"
+                  value={age}
+                  label="Age"
+                  onChange={handleChange}
                 >
-                  <MenuItem disabled selected>
-                    Newest
+                  <MenuItem value={30} selected>
+                    Newst
                   </MenuItem>
-                  <MenuItem>Price(asc)</MenuItem>
-                  <MenuItem>Price(desc)</MenuItem>
+                  <MenuItem value={10}>Desc</MenuItem>
+                  <MenuItem value={20}>Asc</MenuItem>
                 </Select>
               </FormControl>
-            </Typography>
+            </Box>
           </Box>
         </Box>
       </Box>

@@ -4,6 +4,7 @@ import { Box, IconButton, Typography } from "@mui/material";
 import styled from "styled-components";
 import { Add, Remove } from "@mui/icons-material";
 import { useState } from "react";
+import theme from "../style/theme";
 
 const Image = styled.img`
   width: 200px;
@@ -28,6 +29,12 @@ const SingleCartItem = ({ id, name, url, price, setTotal }) => {
       sx={{
         display: "flex",
         justifyContent: "space-between",
+        [theme.breakpoints.down("sm")]: {
+          flexDirection: "column",
+          alignContent: "center",
+          alignItems: "center",
+          mb: 0,
+        },
       }}
     >
       <Box

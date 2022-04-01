@@ -51,7 +51,7 @@ export const popularProducts = [
   },
   {
     id: 2,
-    img: "https://o.remove.bg/downloads/7b990b10-1974-40e8-9717-bc4e6d20aefb/png-transparent-white-crew-neck-t-shirt-t-shirt-white-sleeve-hanes-t-shirts-tshirt-active-shirt-top-removebg-preview.png",
+    img: "http://clipart-library.com/new_gallery/101-1011752_jacket-clothes-free-png-transparent-background-images-png.png",
     name: "item 2",
     price: 93,
     discount: 5,
@@ -93,9 +93,24 @@ export const popularProducts = [
   },
   {
     id: 8,
-    img: "https://www.pngarts.com/files/3/Women-Jacket-PNG-High-Quality-Image.png",
+    img: "https://pngset.com/images/dynamite-leather-jacket-leather-jacket-clothing-apparel-coat-blazer-transparent-png-2930412.png",
     name: "item 8",
     price: 100,
+    discount: 5,
+  },
+  {
+    id: 9,
+    img: "https://d3o2e4jr3mxnm3.cloudfront.net/Rocket-Vintage-Chill-Cap_66374_1_lg.png",
+    name: "item 6",
+    price: 333,
+    discount: 5,
+  },
+
+  {
+    id: 10,
+    img: "https://d3o2e4jr3mxnm3.cloudfront.net/Rocket-Vintage-Chill-Cap_66374_1_lg.png",
+    name: "item 6",
+    price: 333,
     discount: 5,
   },
 ];
