@@ -11,6 +11,7 @@ import Product from "./components/Product";
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import { CartContext, reducer } from "./context/Context";
 import { useState } from "react";
+import "@stripe/stripe-js";
 
 function App() {
   const [carts, addToCarts] = useReducer(reducer, []);

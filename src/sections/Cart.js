@@ -9,10 +9,11 @@ import theme from "../style/theme";
 import SingleCartItem from "./SingleCartItem";
 import { CartContext } from "../context/Context";
 import { useContext, useState } from "react";
-import StripeCheckout from "react-stripe-checkout";
 import axios from "axios";
 import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { CardElement } from "@stripe/react-stripe-js";
+import "@stripe/stripe-js";
+
 const Cart = () => {
   toast.configure();
   const [total, setTotal] = useState(0);
@@ -36,6 +37,7 @@ const Cart = () => {
       amount: total,
       name,
     });
+
     const { status } = response.data;
     console.log(amount);
 
@@ -219,7 +221,7 @@ const Cart = () => {
                 }}
               >
                 {/* <Elements stripe={stripePromise}> */}
-                <StripeCheckout
+                <CardElement
                   stripeKey="pk_test_51Kj9MUJJu9qZoZmmBdLCQUrnfw07kt5eyvxjU0kury3xHJXmhW7Aky1VcQcNpL22130074rtTqCO4rMnib8IB5Zz00x9IO2pIj"
                   token={handleToken}
                   amount={total * 100}
