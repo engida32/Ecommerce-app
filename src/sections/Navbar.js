@@ -122,11 +122,7 @@ const Navbar = () => {
               </Typography>
               <IconButton className={classes.AccountBox}>
                 <AccountBox onClick={handleToggle} />
-                <Box
-                  sx={{
-                    height: "50%",
-                  }}
-                >
+                <Box>
                   <Backdrop
                     sx={{
                       color: "#fefef",
