@@ -30,7 +30,7 @@ const Cart = () => {
     console.log(token);
     // e.preventDefault();
     // let payAmount=
-    const response = await axios.post("http://localhost:8080/checkout", {
+    const response = await axios.post("https://quiet-eyrie-16899.herokuapp.com/checkout", {
       token,
       address,
       currency,

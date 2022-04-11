@@ -6,7 +6,7 @@ import { mobile } from "../util/responsive";
 import { Typography } from "@mui/material";
 import { Box, fontWeight, minHeight, textAlign } from "@mui/system";
 import { Button } from "@mui/material";
-import { makeStyles } from "@mui/material";
+import { makeStyles } from "@mui/styles";
 import { useTheme } from "@emotion/react";
 
 // const useStyles = makeStyles({

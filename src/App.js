@@ -15,7 +15,6 @@ import "@stripe/stripe-js";
 
 function App() {
   const [carts, addToCarts] = useReducer(reducer, []);
-
   return (
     <CartContext.Provider value={{ carts, addToCarts }}>
       <div>

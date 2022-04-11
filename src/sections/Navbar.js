@@ -57,7 +57,14 @@ const Navbar = () => {
 
   return (
     <Container maxWidth="sm">
-      <AppBar sx={{ backgroundColor: "white" }}>
+      <AppBar
+        sx={{
+          backgroundColor: "white",
+          height: "90px",
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
         <Toolbar>
           <IconButton sx={{ mr: "15px" }}>
             <LanguageOutlined sx={{ color: "#616161" }} />
@@ -71,7 +78,6 @@ const Navbar = () => {
             component="div"
           >
             <Paper
-              component="div"
               sx={{
                 ml: "0px",
                 display: "flex",
@@ -199,9 +205,20 @@ const Navbar = () => {
                 </Typography>
               </Box>
               <CustomLink to="/cart">
-                <IconButton sx={{ color: "#332E2E", size: "large" }}>
-                  <Badge badgeContent={carts.length} color="primary">
-                    <ShoppingCartOutlined />
+                <IconButton>
+                  <Badge
+                    badgeContent={carts.length}
+                    sx={{
+                      color: "red",
+                      fontWeight: "800",
+                    }}
+                  >
+                    <ShoppingCartOutlined
+                      sx={{
+                        color: "#a85832",
+                        fontSize: "42px",
+                      }}
+                    />
                   </Badge>
                 </IconButton>
               </CustomLink>
