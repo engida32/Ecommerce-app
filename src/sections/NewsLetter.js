@@ -1,6 +1,5 @@
 import { Send } from "@mui/icons-material";
 import React from "react";
-// import styled from "styled-components";
 // import { mobile } from "../util/responsive";
 import { Box } from "@mui/material";
 import { Typography } from "@mui/material";

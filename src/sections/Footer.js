@@ -4,16 +4,12 @@ import {
   MailOutlined,
   PhoneAndroidOutlined,
   RoomOutlined,
-  //   MailOutlined,
-  //   PhoneAndroidOutlined,
-  //   RoomOutlined,
   Telegram,
   Twitter,
 } from "@mui/icons-material";
 import React from "react";
-import styled from "styled-components";
-// import { mobile } from "../util/responsive";
-import { Grid } from "@mui/material";
+import { styled as styled2 } from "@mui/system";
+import { Grid,Box } from "@mui/material";
 import { Typography } from "@mui/material";
 // const Container = styled.div`
 //   display: flex;
@@ -29,25 +25,44 @@ import { Typography } from "@mui/material";
 //   flex-direction: column;
 //   padding: 20px;
 // `;
-const Logo = styled.h1``;
-const Desc = styled.p`
-  margin: 20px 0px;
-  display: flex;
-`;
-const SocialContainer = styled.div`
-  display: flex;
-`;
-const SocialIcon = styled.div`
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  color: white;
-  background-color: #${(props) => props.color};
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: 20px;
-`;
+const Logo = styled2('h1',{})({});
+const Desc = styled2('p',{})({
+
+  margin: '20px 0px',
+  display: 'flex'
+  
+});
+const SocialContainer = styled2(Box,{})({
+
+  display: 'flex'
+});
+
+const SocialIcon = styled2('div',{})({
+  width: '40px',
+  height: '40px',
+  borderRadius: '50%',
+  color: 'white',
+  backgroundColor:'gray',
+  //TODO:change with prop
+  // backgroundColor: `'#${(props) => props.color}'`,
+  display: 'flex',
+  alignItems: 'center',
+  justifycontent: 'center',
+  marginRight: '20px',
+});
+
+
+// const SocialIcon = styled.div`
+//   width: 40px;
+//   height: 40px;
+//   border-radius: 50%;
+//   color: white;
+//   background-color: #${(props) => props.color};
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   margin-right: 20px;
+// `;
 
 // const Center = styled.div`
 //   flex: 1;
@@ -67,17 +82,21 @@ const SocialIcon = styled.div`
 //   display: flex;
 //   align-items: center;
 // `;
-const List = styled.ul`
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  padding: 10px;
-  display: flex;
-  flex-wrap: wrap;
-`;
-const ListItem = styled.li`
-  margin-bottom: 10px;
-  width: 50%;
+const List = styled2('ul',{})({
+
+  listStyle: 'none',
+  margin: 0,
+  padding: 0,
+  // padding: '10px',
+  display: 'flex',
+  flexWrap: 'wrap'
+   
+});
+const ListItem = styled2('li',{})({
+
+  marginBottom: '10px',
+  width: '50%'
+});
 `;
 // const Right = styled.div`
 //   flex: 1;
@@ -97,12 +116,14 @@ const Footer = () => {
       spacing={{ xs: 2, md: 9 }}
       // columns={{ xs: 1, sm: 3, md: 4 }}
       sx={{
+        margin:'10px',
         display: "flex",
+        justifyContent:'space-evenly'
       }}
     >
       <Grid item xs={3}>
         <Logo>DEV</Logo>
-        <Desc>
+        <Desc sx={{margin:'10px'}}>
           Lorem Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro,
           aliquid. ipsum dolor sit amet consectetur, adipisicing elit. Fugit
           ipsum mole stiae unde natus, provident reiciendis itaque soluta

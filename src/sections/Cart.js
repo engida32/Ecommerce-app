@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-// import styled from "styled-components";
 import Announcement from "./Announcement";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
