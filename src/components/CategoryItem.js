@@ -1,8 +1,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import React from "react";
-import styled from "styled-components";
-import { mobile } from "../util/responsive";
+ import { mobile } from "../util/responsive";
 import { Typography } from "@mui/material";
 import { Box, fontWeight, minHeight, textAlign } from "@mui/system";
 import { Button } from "@mui/material";

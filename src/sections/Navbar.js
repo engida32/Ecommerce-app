@@ -200,9 +200,11 @@ const Navbar = () => {
                 <Typography sx={{ mr: 3, cursor: "pointer", color: "#332E2E" }}>
                   Register
                 </Typography>
+                <CustomLink to="/login">
                 <Typography sx={{ mr: 3, cursor: "pointer", color: "#332E2E" }}>
                   Login
                 </Typography>
+                </CustomLink>
               </Box>
               <CustomLink to="/cart">
                 <IconButton>
