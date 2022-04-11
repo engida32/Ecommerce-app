@@ -1,5 +1,4 @@
 import React from "react";
-// import styled from "styled-components";
 import Navbar from "../sections/Navbar";
 import Announcement from "../sections/Announcement";
 import Products from "../sections/Products";
@@ -8,14 +7,26 @@ import Footer from "../sections/Footer";
 // import { mobile } from "../util/responsive";
 import { Box, MenuItem, Typography, InputLabel } from "@mui/material";
 import theme from "../style/theme";
-import Select from "@mui/material/Select";
+// import Select from "@mui/material/Select";
 import { FormControl } from "@mui/material";
+import Select, {   } from '@mui/material/Select';
+
 
 const ProductList = () => {
   const [age, setAge] = React.useState("");
+  const [color, setColor] = React.useState("");
+  const [size, setSize] = React.useState("");
 
   const handleChange = (event) => {
     setAge(event.target.value);
+    
+  };
+  const handleColorChange = (event) => {
+     setColor(event.target.value  );
+   };
+  const handleSizeChange = (event) => {
+    
+    setSize(event.target.value );
   };
 
   return (
@@ -65,46 +76,56 @@ const ProductList = () => {
                   display: "flex",
                   justifyContent: "space-around",
                   alignContent: "center",
+                  // margin:'10px'
                 }}
               >
-                <FormControl fullWidth>
+                <FormControl  >
                   <InputLabel id="demo-simple-select-label">Color</InputLabel>
                   <Select
-                    value={age}
+                    sx={{
+                      padding: "10px",
+                      width:'105px'
+                    }}
+                    value={color}
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
                     label="Age"
-                    onChange={handleChange}
+                    //TODO: implement handlechange for color
+                    onChange={handleColorChange}
                   >
-                    <MenuItem>White</MenuItem>
-                    <MenuItem>Black</MenuItem>
-                    <MenuItem>Red</MenuItem>
-                    <MenuItem>Yellow</MenuItem>
-                    <MenuItem>Green</MenuItem>
-                    <MenuItem>Pink</MenuItem>
+                    <MenuItem value={'white'} >White</MenuItem>
+                    <MenuItem value={'black'} >Black</MenuItem>
+                    <MenuItem value={'Red'} >Red</MenuItem>
+                    <MenuItem value={'Yellow'} >Yellow</MenuItem>
+                    <MenuItem value={'Green'} >Green</MenuItem>
+                    <MenuItem value={'Pink'} >Pink</MenuItem>
                   </Select>
                 </FormControl>
 
                 <FormControl
                   fullWidth
                   sx={{
-                    m: "5px",
+                    ml:'60px'
                   }}
                 >
                   <InputLabel id="demo-simple-select-label">Size</InputLabel>
                   <Select
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
-                    // value={age}
-                    // label="Age"
-                    onChange={handleChange}
+                    value={size}
+                    label="Size"
+                   
+                    onChange={handleSizeChange}
+                    //TODO: implement handlechange for color
+
+                    // onChange={handleChange}
                   >
-                    <MenuItem>XS</MenuItem>
-                    <MenuItem>S</MenuItem>
-                    <MenuItem>M</MenuItem>
-                    <MenuItem>L</MenuItem>
-                    <MenuItem>XL</MenuItem>
-                    <MenuItem>XXL</MenuItem>
+                    <MenuItem value={'XS'} selected>XS</MenuItem>
+                    <MenuItem  value={'X'}>S</MenuItem>
+                    <MenuItem value={'M'}>M</MenuItem>
+                    <MenuItem value={'L'}>L</MenuItem>
+                    <MenuItem value={'XL'}>XL</MenuItem>
+                    <MenuItem value={'XXL'}>XXL</MenuItem>
                   </Select>
                 </FormControl>
               </Box>
@@ -143,7 +164,7 @@ const ProductList = () => {
                   onChange={handleChange}
                 >
                   <MenuItem value={30} selected>
-                    Newst
+                    Newest
                   </MenuItem>
                   <MenuItem value={10}>Desc</MenuItem>
                   <MenuItem value={20}>Asc</MenuItem>

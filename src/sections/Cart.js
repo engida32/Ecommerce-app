@@ -90,7 +90,7 @@ const Cart = () => {
                 fontWeight: 600,
                 cursor: "pointer",
                 color: "white",
-                backgroundColor: "gray",
+                // backgroundColor: "gray",
               }}
             >
               CONTINUE SHOPPING
@@ -215,12 +215,14 @@ const Cart = () => {
                   p: "10px",
                   width: "100%",
                   backgroundColor: "gray",
+
                   color: "white",
                   fontWeight: 600,
                 }}
               >
                 {/* <Elements stripe={stripePromise}> */}
-                <StripeCheckout
+                <StripeCheckout 
+                  
                   stripeKey="pk_test_51Kj9MUJJu9qZoZmmBdLCQUrnfw07kt5eyvxjU0kury3xHJXmhW7Aky1VcQcNpL22130074rtTqCO4rMnib8IB5Zz00x9IO2pIj"
                   token={handleToken}
                   amount={total * 100}

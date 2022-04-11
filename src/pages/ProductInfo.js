@@ -1,5 +1,4 @@
 import React from "react";
-import styled from "styled-components";
 import Navbar from "../sections/Navbar";
 import NewsLetter from "../sections/NewsLetter";
 import Footer from "../sections/Footer";
@@ -9,6 +8,7 @@ import Button from "@mui/material/Button";
 import { CustomLink } from "../util/CustomLink";
 import { Box, Typography, Select, FormControl, MenuItem } from "@mui/material";
 import { useState } from "react";
+import { styled } from "@mui/system";
 
 // import { makeStyles } from "@mui/styles";
  import theme from '../style/theme';
@@ -25,14 +25,18 @@ import { useState } from "react";
 //   },
 // });
 
-const FilterColor = styled.div`
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background-color: ${(props) => props.color};
-  margin: 0px 5px;
-  cursor: pointer;
-`;
+const FilterColor = styled('div',{})({
+
+  width: '20px',
+  height: '20px',
+  borderRadius: '50%',
+  backgroundColor:'rebeccapurple',
+  //TODO: background color based on props
+  // backgroundColor: `'${(props) => props.color}'`,
+  margin: '0px 5px',
+  cursor: 'pointer',
+   
+});
 
 const ProductInfo = () => {
   // const classes = useStyles();

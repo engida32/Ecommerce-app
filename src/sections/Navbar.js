@@ -32,8 +32,7 @@ import { CartContext } from "../context/Context";
 import theme from "../style/theme";
 import { makeStyles } from "@mui/styles";
 import { Backdrop } from "@mui/material";
-import CircularProgress from "@mui/material/CircularProgress";
-
+ 
 const useStyles = makeStyles({
   AccountBox: {
     display: "flex",
@@ -43,6 +42,7 @@ const useStyles = makeStyles({
       opacity: 1,
     },
   },
+  
 });
 const Navbar = () => {
   const { carts } = useContext(CartContext);
@@ -56,9 +56,12 @@ const Navbar = () => {
   };
 
   return (
-    <Container maxWidth="sm">
+    <Container maxWidth="sm" 
+   >
       <AppBar
         sx={{
+          background: 'linear-gradient(199deg, white 10%, #ebf08b 100%)',
+
           backgroundColor: "white",
           height: "90px",
           display: "flex",
@@ -107,8 +110,9 @@ const Navbar = () => {
               <Typography
                 variant="h6"
                 sx={{
+                  fontSize:'25px',
                   cursor: "pointer",
-                  color: "#0A0909",
+                  color: "#0F0909",
                   [theme.breakpoints.down("sm")]: {
                     display: "none",
                   },
@@ -151,7 +155,7 @@ const Navbar = () => {
                               cursor: "pointer",
                               color: "white",
                               fontSize: "31px",
-                              fontWeight: 500,
+                              fontWeight: 900,
                             }}
                           >
                             Register
@@ -197,22 +201,21 @@ const Navbar = () => {
                   },
                 }}
               >
-                <Typography sx={{ mr: 3, cursor: "pointer", color: "#332E2E" }}>
+                <Typography sx={{ mr: 3,fontWeight:900, fontSize:'20px', cursor: "pointer", color: "#332E2E" }}>
                   Register
                 </Typography>
                 <CustomLink to="/login">
-                <Typography sx={{ mr: 3, cursor: "pointer", color: "#332E2E" }}>
+                <Typography sx={{ mr: 3,fontWeight:900, fontSize:'20px', cursor: "pointer", color: "#332E2E" }}>
                   Login
                 </Typography>
                 </CustomLink>
               </Box>
               <CustomLink to="/cart">
-                <IconButton>
-                  <Badge
+                <IconButton    size="22px" >
+                  <Badge 
                     badgeContent={carts.length}
                     sx={{
-                      color: "red",
-                      fontWeight: "800",
+                    fontSize:'1rem'
                     }}
                   >
                     <ShoppingCartOutlined

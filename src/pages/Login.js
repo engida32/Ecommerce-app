@@ -18,14 +18,16 @@ const Container = styled(
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-});
+ });
 const Wrapper = styled(
   Box,
   {}
 )({
-  width: "50%",
+  width: "40%",
   padding: "20px",
   backgroundColor: " white",
+  alignItems: "center",
+  justifyContent: "center",
   background:
     'url("https://images.pexels.com/photos/6984650/pexels-photo-6984650.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940")',
 });
@@ -36,8 +38,7 @@ const Form = styled(
   minHeight: "100px",
   display: "flex",
   flexDirection: "column",
-  width: "50%",
-
+  // width: "50%",
   alignContent: "center",
   alignItems: "center",
   justifyContent: "center",
@@ -52,9 +53,11 @@ const InputForm = styled(
   borderRadius: "10px",
   height: "50px",
   minHeight: "20px",
-  minWidth: "50%",
+  minWidth: "40%",
+  display: "flex",
   alignItems: "center",
-  margin: "30px 10px 0px 0px",
+  justifyContent: "center",
+   margin: "30px 10px 0px 0px",
 });
 
 const Link = styled(
@@ -95,16 +98,21 @@ const Login = () => {
               justifyContent: "center",
             },
           }}
-        >
+        ><Box>
+
           <Typography
-            variant="h1"
+            variant="h2"
             sx={{
               fontSize: "25px",
-              fontWeight: 30,
+              display:'flex',
+              fontWeight: 'bold',
+              alignSelf:'center',
+              justifyContent:'center '
             }}
-          >
+            >
             SIGN IN TO YOUR ACCOUNT
           </Typography>
+            </Box>
           <Form>
             <InputForm placeholder="user name" />
             <InputForm placeholder="password" />
