@@ -65,6 +65,8 @@ const Link = styled(
   padding: "15px 20px",
   backgroundColor: "teal",
   color: "white",
+  fontWeight:'bold',
+  fontStyle:'italic',
   cursor: "pointer",
   textDecoration: "underline",
 });
@@ -79,15 +81,6 @@ const SButton = styled(
   color: "white",
   cursor: "pointer",
 });
-
-// const Link = styled.a`
-//   margin: 15px 0px;
-//   font-size: 12px;
-//   text-decoration: underline;
-//   /* color: red; */
-//   cursor: pointer;
-// `;
-
 const Login = () => {
   return (
     <>
@@ -129,7 +122,7 @@ const Login = () => {
             <Link
               variant="link"
               sx={{
-                backgroundColor: "white",
+                backgroundColor: "inherit",
                 color: "gray",
               }}
             >
@@ -138,7 +131,7 @@ const Login = () => {
             <Link
               variant="link"
               sx={{
-                backgroundColor: "white",
+                backgroundColor: "inherit",
                 color: "gray",
               }}
             >
