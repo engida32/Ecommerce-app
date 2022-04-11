@@ -8,36 +8,23 @@ import {
   Twitter,
 } from "@mui/icons-material";
 import React from "react";
-import { styled as styled2 } from "@mui/system";
+import { styled  } from "@mui/system";
 import { Grid,Box } from "@mui/material";
 import { Typography } from "@mui/material";
-// const Container = styled.div`
-//   display: flex;
-
-//   ${mobile({
-//     flexDirection: "column",
-//   })}
-// `;
-
-// const Left = styled.div`
-//   flex: 1;
-//   display: flex;
-//   flex-direction: column;
-//   padding: 20px;
-// `;
-const Logo = styled2('h1',{})({});
-const Desc = styled2('p',{})({
+ 
+const Logo = styled('h1',{})({});
+const Desc = styled('p',{})({
 
   margin: '20px 0px',
   display: 'flex'
   
 });
-const SocialContainer = styled2(Box,{})({
+const SocialContainer = styled(Box,{})({
 
   display: 'flex'
 });
 
-const SocialIcon = styled2('div',{})({
+const SocialIcon = styled('div',{})({
   width: '40px',
   height: '40px',
   borderRadius: '50%',
@@ -82,7 +69,7 @@ const SocialIcon = styled2('div',{})({
 //   display: flex;
 //   align-items: center;
 // `;
-const List = styled2('ul',{})({
+const List = styled('ul',{})({
 
   listStyle: 'none',
   margin: 0,
@@ -92,7 +79,7 @@ const List = styled2('ul',{})({
   flexWrap: 'wrap'
    
 });
-const ListItem = styled2('li',{})({
+const ListItem = styled('li',{})({
 
   marginBottom: '10px',
   width: '50%'

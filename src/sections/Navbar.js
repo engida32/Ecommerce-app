@@ -208,16 +208,17 @@ const Navbar = () => {
               </Box>
               <CustomLink to="/cart">
                 <IconButton    size="22px" >
-                  <Badge 
+                  <Badge  sx={{
+                    color:'teal',
+                   }}
                     badgeContent={carts.length}
-                    sx={{
-                    fontSize:'1rem'
-                    }}
+                    
                   >
                     <ShoppingCartOutlined
                       sx={{
                         color: "#a85832",
                         fontSize: "42px",
+
                       }}
                     />
                   </Badge>
